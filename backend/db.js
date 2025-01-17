@@ -4,12 +4,10 @@ const mongoDB = async () => {
     .connect("mongodb://localhost:27017/GoFoodMern")
     .then(async () => {
       console.log("MongoDB Connected");
-      const food_data = await mongoose.connection.db.collection("Food_Items");
-      food_data.find({}).toArray(async function(err, data){
-        if(err)console.log(err);
-        else console.log(data);
-      });
-      console.log(food_data.find({}))
+      const foodItemsCollection = mongoose.connection.db.collection("Food_Items");
+      const foodItems = await foodItemsCollection.find({}).toArray()
+      //console.log(foodItems)
+      //console.log(food_data.find({}))
     })
     .catch((err) => console.log("Mongo Error"));
 };

@@ -19,14 +19,23 @@ function Navbar() {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div className="navbar-nav">
-          <Link className="nav-item nav-link active" to="/">
-            Home{" "}
+        <ul className="navbar-nav">
+          <li>
+          <Link className="nav-item nav-link" to="/">
+            Home
           </Link>
+          </li>
+          <li>
           <Link className="nav-item nav-link" to="/login">
             Login
           </Link>
-        </div>
+          </li>
+          <li>
+          <Link className="nav-item nav-link" to="/createuser">
+            SignUp
+          </Link>
+          </li>
+        </ul>
       </div>
     </nav>
   );
