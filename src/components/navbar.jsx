@@ -21,19 +21,19 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul className="navbar-nav">
           <li>
-          <Link className="nav-item nav-link" to="/">
-            Home
-          </Link>
+            <Link className="nav-item nav-link" to="/">
+              Home
+            </Link>
           </li>
           <li>
-          <Link className="nav-item nav-link" to="/login">
-            Login
-          </Link>
+            <Link className="nav-item nav-link" to="/login">
+              Login
+            </Link>
           </li>
           <li>
-          <Link className="nav-item nav-link" to="/createuser">
-            SignUp
-          </Link>
+            <Link className="nav-item nav-link" to="/createuser">
+              SignUp
+            </Link>
           </li>
         </ul>
       </div>
