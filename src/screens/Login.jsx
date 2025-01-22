@@ -1,22 +1,21 @@
 import React, { useState } from 'react'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
   const [credentials, setcredentials] = useState({
-      name: "",
       email: "",
       password: "",
-      geolocation: "",
     });
+    let navigate= useNavigate()
     const handleSubmit = async (e) => {
       e.preventDefault();
       console.log(JSON.stringify({
         email: credentials.email,
         password: credentials.password,
       }));
-      const response = await fetch("http://localhost:5000/api/createuser", {
+      const response = await fetch("http://localhost:5000/api/loginuser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,6 +29,9 @@ function Login() {
       console.log('json',json);
       if (!json.Success) {
         alert("Invalid Credentials");
+      }
+      if(json.Success){
+        navigate("/");
       }
     };
   
