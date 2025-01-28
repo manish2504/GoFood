@@ -1,8 +1,13 @@
-import React, { createContext } from 'react'
+import React, { createContext,useContext,useReducer } from 'react'
 const CartStateContext=createContext();
 const CartDispatchContext=createContext();
 const reducer = (state,action)=>{
-
+    switch(action.type){
+        case "ADD":
+            return [...state,{id:action.id,name:action.name,price:action.price,qty:action.qty,size:action.size,img:action.img}];
+        default:
+            console.log("Error on Reducer");
+    }
 }
 export const CartProvider=({children})=>{
     const [state,dispatch]=useReducer(reducer,[]);
@@ -13,4 +18,12 @@ export const CartProvider=({children})=>{
             </CartStateContext.Provider>
         </CartDispatchContext.Provider>
     )
+}
+
+export const useCart=()=>{
+    return useContext(CartStateContext);
+}
+
+export const useDispatchCart=()=>{
+    return useContext(CartDispatchContext);
 }

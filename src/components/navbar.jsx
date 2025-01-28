@@ -11,7 +11,7 @@ function Navbar() {
   };
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-      <Link class="navbar-brand fs-1 fst-italic" to="/">
+      <Link className="navbar-brand fs-1 fst-italic" to="/">
         GoFood
       </Link>
       <button
