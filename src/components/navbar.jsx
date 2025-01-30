@@ -39,7 +39,7 @@ function Navbar() {
             </Link>
           </li>
           {(localStorage.getItem("authToken")) ? <li className="nav-item">
-            <Link className="nav-link actice fs-5" area-current="page" to="/">
+            <Link className="nav-link actice fs-5" area-current="page" to="/myOrder">
             My Orders
             </Link>
           </li>:"" }

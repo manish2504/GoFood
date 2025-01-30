@@ -17,16 +17,13 @@ export default function Cart() {
     //   console.log(index)
     //   dispatch({type:"REMOVE",index:index})
     // }
-  
+
     const handleCheckOut = async () => {
       let userEmail = localStorage.getItem("userEmail");
-      // console.log(data,localStorage.getItem("userEmail"),new Date())
-      let response = await fetch("http://localhost:5000/api/auth/orderData", {
-        // credentials: 'include',
-        // Origin:"http://localhost:3000/login",
-        method: 'POST',
+      let response = await fetch("http://localhost:5000/api/orderdata", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           order_data: data,
@@ -34,9 +31,9 @@ export default function Cart() {
           order_date: new Date().toDateString()
         })
       });
-      console.log("JSON RESPONSE:::::", response.status)
-      if (response.status === 200) {
-        dispatch({ type: "DROP" })
+      console.log("Order Response", response);
+      if(response.status === 200){
+        dispatch({type:"DROP"});
       }
     }
   
