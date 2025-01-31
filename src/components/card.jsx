@@ -27,7 +27,7 @@ function Card(props) {
     }
     else{
     console.log("ADD")
-    await dispatch({type:"ADD",id:props.foodItem._id,name:props.foodItem.name,price:finalPrice,qty:qty,size:size});
+    await dispatch({type:"ADD",id:props.foodItem._id,name:props.foodItem.name,price:finalPrice,qty:qty,size:size,img:props.foodItem.img});
     await console.log(dispatch);
     }
   }
@@ -39,16 +39,16 @@ function Card(props) {
     <div>
       <div>
         <div
-          className="card mt-3"
-          style={{ width: "18rem", maxHeight: "360px" }}
+          className="card mt-3 m- auto"
+          //style={{ width: "18rem", maxHeight: "360px" }}
         >
-          <img className="card-img-top" src={props.foodItem.img} alt="Card image cap" style={{height:"120px",objectFit:"fill"}} />
+          <img className="card-img-top" src={props.foodItem.img} alt="Card image cap" style={{height:"180px",objectFit:"fill"}} />
           <div className="card-body">
             <h5 className="card-title">{props.foodItem.name}</h5>
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
+            {/* <p className="card-text">
+              {props.foodItem.description}
+            </p> */}
+            
             <div className="container w-100">
               <select className="m-2 h-100 bg-success rouded" onChange={(e)=>{setQty(e.target.value)}}>
                 {Array.from(Array(6), (e, i) => {

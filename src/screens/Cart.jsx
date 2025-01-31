@@ -1,5 +1,5 @@
 import React from 'react'
-//import Delete from '@material-ui/icons/Delete'
+import Delete from '@material-ui/icons/Delete'
 import { useCart, useDispatchCart } from '../components/contextReducer'
 
 export default function Cart() {
@@ -42,27 +42,27 @@ export default function Cart() {
       <div>
   
         {console.log(data)}
-        <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md' >
-          <table className='table table-hover '>
-            <thead className=' text-success fs-4'>
+        <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md text-white' >
+          <table className='table table-hover text-white'>
+            <thead className='text-white fs-4'>
               <tr>
-                <th scope='col' >#</th>
-                <th scope='col' >Name</th>
-                <th scope='col' >Quantity</th>
-                <th scope='col' >Option</th>
-                <th scope='col' >Amount</th>
-                <th scope='col' ></th>
+                <th scope='col' className='text-white'>#</th>
+                <th scope='col' className='text-white'>Name</th>
+                <th scope='col' className='text-white'>Quantity</th>
+                <th scope='col' className='text-white'>Option</th>
+                <th scope='col' className='text-white'>Amount</th>
+                <th scope='col' className='text-white'></th>
               </tr>
             </thead>
             <tbody>
               {data.map((food, index) => (
                 <tr>
-                  <th scope='row' >{index + 1}</th>
-                  <td >{food.name}</td>
-                  <td>{food.qty}</td>
-                  <td>{food.size}</td>
-                  <td>{food.price}</td>
-                  <td ><button type="button" className="btn p-0"><img src="jhgh" alt ="delete" onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td>
+                  <th scope='row' className='text-white'>{index + 1}</th>
+                  <td className='text-white'>{food.name}</td>
+                  <td className='text-white'>{food.qty}</td>
+                  <td className='text-white'>{food.size}</td>
+                  <td className='text-white'>{food.price}</td>
+                  <td ><button type="button" className="btn p-0 text-white"><Delete onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td>
                   </tr>
               ))}
             </tbody>

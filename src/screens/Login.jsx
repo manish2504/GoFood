@@ -44,7 +44,7 @@ function Login() {
   return (
     <>
       <Navbar/>
-      <div className="container">
+      <div className="container mt-5" style={{height:"70vh"}}>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="exampleInputEmail1" className="form-label">

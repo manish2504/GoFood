@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 export default function Signup() {
   const [credentials, setcredentials] = useState({
@@ -40,7 +42,8 @@ export default function Signup() {
   };
   return (
     <>
-      <div className="container">
+      <Navbar />
+      <div className="container mt-5" style={{ height: "70vh" }}>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
@@ -115,6 +118,7 @@ export default function Signup() {
           </Link>
         </form>
       </div>
+      <Footer />
     </>
   );
 }
