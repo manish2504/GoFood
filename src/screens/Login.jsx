@@ -4,6 +4,7 @@ import Footer from '../components/footer'
 import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
+  const api = import.meta.env.VITE_API_URL;
   const [credentials, setcredentials] = useState({
       email: "",
       password: "",
@@ -11,11 +12,11 @@ function Login() {
     let navigate= useNavigate()
     const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log(JSON.stringify({
-        email: credentials.email,
-        password: credentials.password,
-      }));
-      const response = await fetch("http://localhost:5000/api/loginuser", {
+      // console.log(JSON.stringify({
+      //   email: credentials.email,
+      //   password: credentials.password,
+      // }));
+      const response = await fetch(api+"/api/loginuser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,14 +27,14 @@ function Login() {
         }),
       });
       const json = await response.json();
-      console.log('json',json);
+      //console.log('json',json);
       if (!json.Success) {
         alert("Invalid Credentials");
       }
       if(json.Success){
         localStorage.setItem("userEmail",credentials.email);
         localStorage.setItem("authToken",json.authToken);
-        console.log(localStorage.getItem("authToken"));
+        //console.log(localStorage.getItem("authToken"));
         navigate("/");
       }
     };

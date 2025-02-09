@@ -3,7 +3,7 @@ const mongoDB = require('./db');
 const { default: mongoose } = require('mongoose');
 const router = require('./Routes/createUser');
 const app = express()
-const port = 5000
+const port = process.env.PORT || 5000
 mongoDB();
 // const UserSchema = mongoose.Schema({
 //   name:{

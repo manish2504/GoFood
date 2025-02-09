@@ -1,24 +1,26 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
 export default function Signup() {
+  const api = import.meta.env.VITE_API_URL;
   const [credentials, setcredentials] = useState({
     name: "",
     email: "",
     password: "",
     geolocation: "",
   });
+  let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(JSON.stringify({
-      name: credentials.name,
-      email: credentials.email,
-      password: credentials.password,
-      location: credentials.geolocation,
-    }));
-    const response = await fetch("http://localhost:5000/api/createuser", {
+    // console.log(JSON.stringify({
+    //   name: credentials.name,
+    //   email: credentials.email,
+    //   password: credentials.password,
+    //   location: credentials.geolocation,
+    // }));
+    const response = await fetch(api+"/api/createuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,9 +33,12 @@ export default function Signup() {
       }),
     });
     const json = await response.json();
-    console.log('json',json);
+    // console.log('json',json);
     if (!json.Success) {
       alert("Invalid Credentials");
+    }
+    else{
+      navigate('/login')
     }
   };
 

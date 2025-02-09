@@ -3,10 +3,11 @@ import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 
 function MyOrder() {
+    const api = import.meta.env.VITE_API_URL;
     const [orderData, setOrderData] = useState("");
     const fetchMyOrder = async () => {
-        console.log(localStorage.getItem("userEmail"));
-        await fetch("http://localhost:5000/api/myOrderData",{
+        // console.log(localStorage.getItem("userEmail"));
+        await fetch(api+"/api/myOrderData",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

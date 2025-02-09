@@ -4,6 +4,8 @@ import { useCart, useDispatchCart } from '../components/contextReducer'
 
 export default function Cart() {
     let data = useCart();
+    const api=import.meta.env.VITE_API_URL;
+    const orderAPI=api + "/api/orderdata";
     //console.log(data.id)
     let dispatch = useDispatchCart();
     if (data.length === 0) {
@@ -19,8 +21,9 @@ export default function Cart() {
     // }
 
     const handleCheckOut = async () => {
+      console.log(orderAPI);
       let userEmail = localStorage.getItem("userEmail");
-      let response = await fetch("http://localhost:5000/api/orderdata", {
+      let response = await fetch(orderAPI, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +44,7 @@ export default function Cart() {
     return (
       <div>
   
-        {console.log(data)}
+        {/* {console.log(data)} */}
         <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md text-white' >
           <table className='table table-hover text-white'>
             <thead className='text-white fs-4'>
