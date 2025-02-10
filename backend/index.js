@@ -12,7 +12,7 @@ mongoDB();
 // })
 // const User = mongoose.model('user',UserSchema);
 app.use((req,res,next)=>{
-  res.setHeader("Access-Control-Allow-Origin","http://localhost:5173");
+  res.setHeader("Access-Control-Allow-Origin",process.env.ALLOWED_ORIGIN);
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-Width, Content-Type, Accept"
