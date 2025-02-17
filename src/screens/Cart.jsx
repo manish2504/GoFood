@@ -5,7 +5,7 @@ import { useCart, useDispatchCart } from '../components/contextReducer'
 export default function Cart() {
     let data = useCart();
     const api=import.meta.env.VITE_API_URL;
-    const orderAPI=api + "/api/orderdata";
+    const orderAPI="/api/orderdata";
     //console.log(data.id)
     let dispatch = useDispatchCart();
     if (data.length === 0) {

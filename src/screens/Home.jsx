@@ -12,7 +12,7 @@ function Home() {
   const [foodCat, setfoodCat] = useState([]);
   const [foodItem, setfoodItem] = useState([]);
   const api=import.meta.env.VITE_API_URL;
-  const foodDataAPI=api + "/api/foodData";
+  const foodDataAPI="/api/foodData";
   const loadData = async () => {
     let response = await fetch(foodDataAPI, {
       method: "POST",

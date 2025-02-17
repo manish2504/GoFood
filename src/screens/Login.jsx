@@ -16,7 +16,7 @@ function Login() {
       //   email: credentials.email,
       //   password: credentials.password,
       // }));
-      const response = await fetch(api+"/api/loginuser", {
+      const response = await fetch("/api/loginuser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
