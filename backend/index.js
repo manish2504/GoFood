@@ -1,7 +1,6 @@
 const express = require('express')
 const mongoDB = require('./db');
 const { default: mongoose } = require('mongoose');
-const router = require('./Routes/createUser');
 const app = express()
 const port = process.env.PORT || 5000
 mongoDB();
@@ -23,7 +22,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 app.use(express.json());
-app.use('/api',router);
+app.use('/api',require("./routes/createUser"));
 app.use('/api',require("./routes/DisplayData"));
 app.use('/api',require("./routes/OrderData"));
 app.listen(port, () => {
