@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server:{
     proxy:{
-      "/api":"http://localhost:5000",
+      "/api":"https://gofood-backend-dc6g.onrender.com",
     },
   },
   plugins: [react()],
