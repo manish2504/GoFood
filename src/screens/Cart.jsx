@@ -65,7 +65,7 @@ export default function Cart() {
                   <td className='text-white'>{food.qty}</td>
                   <td className='text-white'>{food.size}</td>
                   <td className='text-white'>{food.price}</td>
-                  <td ><button type="button" className="btn p-0 text-white"><Delete onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td>
+                  <td ><button type="button" className="btn p-0 text-white" onClick={() => { dispatch({ type: "REMOVE", index: index }) }}>Delete</button> </td>
                   </tr>
               ))}
             </tbody>
